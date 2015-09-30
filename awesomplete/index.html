@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+
+<meta charset="utf-8" />
+<title>Awesomplete</title>
+
+	<!-- Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">
+    <script src="js/bootstrap.min.js"></script>
+
+	<link rel="stylesheet" href="css/awesomplete.css" />
+	<script type="text/javascript" src="js/awesomplete.js"></script>
+	<script type="text/javascript" src="js/index.js"></script>
+
+</head>
+
+<body>
+
+	<div class="container">
+
+      <h1>Awesomplete</h1>     
+
+      <div class="page-header">
+        <h2>Formulario</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-md-12">
+
+          <form role="form">
+
+            <div class="form-group">
+              <label for="nya">Nombres y Apellidos:</label>
+              <input type="text" class="form-control" id="nya" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Ingresa tu Email: (Autocompletado con Awesomplete)</label><br>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje:</label>
+              <textarea class="form-control" name="mensaje" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-default">Aceptar</button>
+
+          </form>
+
+
+        </div>
+      </div>
+
+    </div>
+
+
+		<script type="text/javascript">
+
+			new Awesomplete($('input[type="email"]'), {
+				list: ["@aol.com", "@att.net", "@comcast.net", "@facebook.com", "@gmail.com", "@gmx.com", "@googlemail.com", "@google.com", "@hotmail.com", "@mac.com", "@me.com", "@mail.com", "@msn.com", "@live.com", "@sbcglobal.net", "@verizon.net", "@yahoo.com"],
+				item: function(text, input){
+					var newText = input.slice(0, input.indexOf("@")) + text;
+					
+					return Awesomplete.$.create("li", {
+					    innerHTML: newText.replace(RegExp(input.trim(), "gi"), "<mark>$&</mark>"),
+					    "aria-selected": "false"
+					});
+			    },
+				filter: function(text, input){
+					return RegExp("^" + Awesomplete.$.regExpEscape(input.replace(/^.+?(?=@)/, ''), "i")).test(text);
+			    }
+			});
+
+		</script>
+
+
+</body>
+</html>

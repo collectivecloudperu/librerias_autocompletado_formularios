@@ -1,0 +1,83 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Chosen</title>
+    <!-- Bootstrap -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap-theme.min.css">    
+    <script src="js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-chosen.css">
+    <script src="js/chosen.jquery.js"></script>
+    
+    <script type="text/javascript">
+      $(function() {
+        $('.chosen-select').chosen();
+        $('.chosen-select-deselect').chosen({ allow_single_deselect: true });
+      });
+    </script>
+
+  </head>
+  <body>
+    <div class="container">
+
+      <h1>Chosen</h1>     
+
+      <div class="page-header">
+        <h2>Formulario</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-12">
+
+          <form role="form">
+
+            <div class="form-group">
+              <label for="nya">Nombres y Apellidos:</label>
+              <input type="text" class="form-control" id="nya" required>
+            </div>
+
+            <div class="form-group">
+              <label for="email">Email:</label>
+              <input type="email" class="form-control" id="email" required>
+            </div>
+
+            <div class="form-group">
+              <label for="paisesv">Conocimientos en Programación (Autocompletado con Chosen)</label>              
+              <select data-placeholder="Ej: Rethink DB, Ruby" name="paisesv" id="paisesv" class="chosen-select" multiple tabindex="4" required>
+                <option value=""></option>
+                <option value="nodejs">Node Js</option>
+                <option value="iojs">IO JS</option>
+                <option value="python">Python</option>
+                <option value="ruby">Ruby</option>
+                <option value="PHP">PHP</option>
+                <option value="javascript">Javascript</option>
+                <option value="java">Java</option>
+                <option value="html5">HTML 5</option>
+                <option value="css3">CSS 3</option>
+                <option value="mysql">MySQL</option>
+                <option value="mongodb">Mongo DB</option>
+                <option value="rethinkdb">Rethink DB</option>
+                <option value="SEO">SEO</option>
+                <option value="otros">Otros</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje">Mensaje:</label>
+              <textarea class="form-control" name="mensaje" required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-default">Aceptar</button>
+
+          </form>
+
+
+        </div>
+      </div>
+
+    </div>
+  </body>
+</html>
